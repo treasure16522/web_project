@@ -184,6 +184,27 @@ img {
   font-weight: var(--font-medium);
 }
 
+.nav__link{
+  position: relative;
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-medium);
+}
+
+.nav__link::after{
+  content: '';
+  position: absolute;
+  bottom: -.5rem;
+  left: 0%;
+  width: 0%;
+  height: 2px;
+  background-color: var(--title-color);
+  transition: width .4s;
+}
+
+.nav__link:hover::after{
+  width: 70%;
+}
 .nav__close{
   top:1.5rem;
   position: absolute;
@@ -210,7 +231,9 @@ img {
 }
 
 /* Active link */
-
+.active-link::after{
+  width: 70%;
+}
 
 /*=============== HOME ===============*/
 .home{
@@ -601,19 +624,89 @@ img {
   text-align: center; 
 }
 /*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar{
+  width: .6rem;
+  border-radius: .5rem;
+  background-color: hsla(0, 0%, 10%);
+}
 
+::-webkit-scrollbar-thumb{
+  border-radius: .5rem;
+  background-color: hsla(0, 0%, 20%);
+}
 
+::-webkit-scrollbar-thumb:hover{
+  background-color: hsla(0, 0%, 30%);
+}
 /*=============== SCROLL UP ===============*/
-
+.scrollup{
+  position: fixed;
+  bottom: -50%;
+  right: 1rem;
+  color: var(--title-color);
+  padding: 6px;
+  display: inline-flex;
+  font-size: 1.25rem;
+  border-radius: 50%;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: var(--z-tooltip);
+  transition: bottom .4s, transform .4s;
+  }
+  .scrollup:hover{
+    transform: translateY(-.25rem);
+  }
 
 /* Show Scroll Up */
-
+.show-scroll{
+  bottom: 3rem;
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 340px) {
+  .container{
+    margin-inline: 1rem;
+  }
 
+  .footer__data{
+    grid-template-columns: max-content;
+  }
+}
 
 /* For medium devices */
+@media screen and (min-width: 576px) {
+  .home__container,
+  .about__container,
+  .explore__content,
+  .join__container{
+    grid-template-columns: ;
+    justify-content: center;
+  }
 
+  .footer__data{
+    grid-template-columns: repeat(3, max-content);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .home__cards{
+    grid-template-columns: repeat(2, 240px);
+  }
+
+  .about__container{
+    grid-template-columns: repeat(2, 350px);
+    align-items: center;
+  }
+
+  .about__data,
+  .about__data .section__title{
+    text-align: initial;
+  }
+
+  .popular__container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 /* For large devices */

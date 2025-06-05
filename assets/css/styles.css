@@ -12,6 +12,8 @@
   --text-color-light: hsl(0, 0%, 60%);
   --body-color: hsl(0, 0%, 0%);
   --container-color: hsl(0, 0%, 8%);
+  --red-price-color: hsl(0, 90%, 48%);
+  --green-button-color: hsl(120, 70%, 40%);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -145,6 +147,7 @@ img {
   columns: var(--title-color);
   font-family: var(--second-font);
   font-weight: var(--font-semi-bold);
+  font-size: 1.5rem;
 }
 
 .nav__toggle,
@@ -240,15 +243,57 @@ img {
   position: relative;
 }
 
-.home__bg{
-  position: relative;
+.home__slideshow {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 750px;
-  object-fit: cover;
-  object-position: center;
+  overflow: hidden;
+  z-index: -1;
 }
+
+.home__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.home__bg.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.home__dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+
 
 .home__shadow{
   position: absolute;
@@ -266,10 +311,12 @@ img {
   position: relative;
   padding-top: 3rem;
   row-gap: 3rem;
+  justify-content: start;
 }
 
 .home__data{
-  text-align: center;
+  text-align: left;
+    max-width: 480px;
 }
 
 .home__subtitle{
@@ -278,27 +325,60 @@ img {
 }
 
 .home__title{
-  font-size: var(--biggest-font-size);
+  font-size: var(--h1-font-size);
   margin-bottom: 1rem;
 }
 
 .home__descritption{
   margin-bottom: 2rem;
   color: var(--title-color);
+  font-size: var(--small-font-size);
 }
+
+.text-light {
+  color: white;
+}
+.text-dark {
+  color: black;
+}
+
+.text-dark h1,
+.text-dark p,
+.text-dark a {
+  color: black !important;
+}
+
+.text-light h1,
+.text-light p,
+.text-light a {
+  color: white !important;
+}
+
 
 .home__cards{
   grid-template-columns: 240px;
   justify-content: center;
+  margin-top: 5rem;
+  padding-bottom: 2rem;
 }
 
 .home__card{
   position: relative;
+  width: 100%;
+  height: 380px;
   overflow: hidden;
+  border-radius: 0.5rem;
+  margin-left: 6rem;
 }
 
 .home__card-img{
-  transition: transform .4s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 .home__card-shadow{
@@ -307,35 +387,86 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: linear-gradient(180deg,
-                    hsla(0,0%,0%,0)50%
-                    hsla(0,0%,0%)125%);
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+  z-index: 1;
+}
+
+.home__card-content {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .home__card-title{
-  position: relative;
-  left: 1rem;
+
   bottom: 2rem;
-  font-size: var(--h3-font-size);
-  z-index: 1;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.home__card-tours {
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  color: #eee;
+}
+
+.home__card-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  font-family: var(--h2-font-size);
+}
+
+.home__card-button i {
+  font-size: 1rem;
+}
+
+.destination__description{
+  text-align: center;
+}
+
+.home__card-button:hover {
+  opacity: 0.7;
 }
 
 .home__card:hover .home__card-img{
   transform: scale(1.2);
 }
 
-.button{
-  background-color: hsla(0,0%,100%, .2);
-  padding: 1.25rem 1.5rem;
+.button,
+.button-transparent {
+  display: block; 
+  text-align: center;
+  width: 100%; 
+  padding: 1.25rem 1.5rem; 
   color: var(--title-color);
-  display: inline-flex;
-  align-items: center;
-  column-gap: .5rem;
   font-family: var(--second-font);
   font-weight: var(--font-semi-bold);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  margin-top: 1rem;
+  margin-top: 1rem; 
+}
+
+.button {
+  background-color: hsla(0, 90%, 48%, 0.925); /* Original button color */
+}
+
+.button-transparent {
+  background-color: transparent; /* Transparent background */
+  border: 2px solid var(--title-color); /* Optional: add a border */
 }
 
 .button i{
@@ -346,8 +477,65 @@ img {
 
 .button:hover{
   transform: translateX(.25rem);
+  background-color: hsla(0, 90%, 38%, 0.925);
+}
+.button-transparent:hover{
+  transform: translateX(.25rem);
 }
  
+/*=============== FORM ===============*/
+.form__container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-block: 3rem;
+  margin-top: 10rem;
+}
+
+.form__content {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+
+.form__group {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+}
+
+
+.form__label {
+  margin-bottom: 0.5rem; 
+  color: var(--title-color); 
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  text-align: left;
+}
+
+.form__input,
+.form__textarea {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background-color: var(--container-color);
+  color: var(--title-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  border-radius: 0.5rem;
+  resize: none;
+}
+
+.form__input::placeholder,
+.form__textarea::placeholder {
+  color: var(--text-color-light);
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  outline: 2px solid hsla(0, 90%, 48%, 0.8); /* optional focus effect */
+}
+
 /*=============== BUTTON ===============*/
 
 
@@ -405,6 +593,22 @@ img {
 
 .popular__img{
   transition: transform .4s;
+  width: 100%;
+  height: 380px;
+}
+
+.popular__best-seller {
+  position: absolute;
+  top: 1rem; 
+  right: 1rem; /* Adjust position from right */
+  background-color: hsl(45, 100%, 50%); /* Golden background color */
+  color: var(--body-color); /* Dark text color for contrast */
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  padding: 0.3rem 0.7rem;
+  border-radius: 2rem; /* Rounded shape */
+  border: 1px solid hsl(45, 100%, 30%); /* Darker golden border */
+  z-index: 10; /* Ensure it's above the image and shadow */
 }
 
 .popular__shadow{
@@ -418,80 +622,286 @@ img {
                   hsla(0,0%,0%)125%);
 }
 
+.popular__details-wrapper {
+  padding-top: 1rem;
+  display: flex;  
+  flex-direction: column;
+}
+
 .popular__title{
   font-size: var(--h3-font-size);
   margin-bottom: .5rem;
 }
 
-.popular__location{
+.popular__ratings {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  color: hsl(45, 100%, 50%); /* Golden color for stars */
+  font-size: var(--small-font-size);
+  margin-bottom: 0.5rem;
+}
+
+.popular__ratings i {
+  font-size: 1rem; /* Size of star icons */
+}
+
+.popular__location,
+.popular__duration {
   display: inline-flex;
   align-items: center;
   column-gap: .25rem;
   font-size: var(--small-font-size);
   font-family: var(--second-font);
   font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
 }
 
-.popular__location i{
+.popular__location i,
+.popular__duration i{
   font-size: 1rem;
+}
+
+.popular__price-actions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.popular__price {
+  font-size: var(--normal-font-size);
+  color: var(--text-color); 
+}
+
+.popular__price-amount {
+  color: var(--red-price-color); /* Red color for the price amount */
+  font-weight: var(--font-semi-bold);
+  font-size: var(--h3-font-size); /* Make the price amount slightly larger */
+}
+
+.popular__view-details {
+  background-color: var(--green-button-color); /* Green button color */
+  color: var(--title-color);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  transition: background-color .3s, transform .4s;
+  width: auto;
+  line-height: 1.2; 
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  margin-top: 1rem;
+  white-space: nowrap;
+}
+
+
+.popular__price-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  margin-top: 1rem;
+  column-gap: 50rem;
+}
+
+
+.popular__view-details:hover {
+  background-color: hsl(120, 70%, 30%); /* Darker green on hover */
 }
 
 .popular__image:hover .popular__img{
   transform: scale(1.2);
 }
-/*=============== EXPLORE ===============*/
-.explore{
-  position: relative;
+
+.popular__view-all-wrapper {
+  text-align: center; 
+  margin-top: 2.5rem; 
+  padding-bottom: 2rem; 
 }
 
-.explore__image{
+.popular__view-all-button {
+  display: inline-block; 
+  width: auto;       
+  height: 60px;      
+  padding: 0.75rem 2rem; 
+  white-space: nowrap;   
+  margin-top: 0;         
+}
+
+/*=============== ATTRACTIONS SECTION ===============*/
+.attractions__container {
+  row-gap: 2.5rem;
+}
+
+.attractions__section-description {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.attractions__images {
+  grid-template-columns: 240px; /* Default for small screens */
+  justify-content: center;
+  row-gap: 3rem;
+}
+
+.attractions__card {
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 16px hsla(0, 0%, 0%, .25);
+  border-radius: 1rem; /* Match popular/home card rounded corners */
 }
 
-.explore__img{
+.attractions__image {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.attractions__img {
+  transition: transform .4s;
   width: 100%;
-  height: 333px;
+  height: 380px; /* Consistent image height with popular section */
   object-fit: cover;
-  object-position: center;
+  border-radius: 1rem; /* Ensure image corners match card */
 }
 
-.explore__shadow{
+/* Reusing the shadow style previously defined for popular/home cards */
+.attractions__shadow {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: linear-gradient(180deg,
-                  hsla(0,0%,0%)50%,
-                  hsla(0,0%,0%,0)40%
-                  hsla(0,0%,0%,0)60%
-                  hsla(0,0%,0%)92%);
+  background: linear-gradient(180deg, hsla(0, 0%, 0%, 0) 50%, hsla(0, 0%, 0%, .8) 100%);
+  border-radius: 1rem; /* Match card/image border-radius */
 }
 
-.explore__content{
-  position: relative;
-  padding-top: 16rem;
-  text-align: center;
-  row-gap: 2.5rem;
+.attractions__card:hover .attractions__img {
+  transform: scale(1.2); /* Zoom effect on hover */
 }
 
-.explore__user{
+.attractions__details-wrapper {
+  padding-inline: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem; /* Adjust padding as needed for internal content */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+}
+
+.attraction__country {
+  display: inline-block;
+  font-size: var(--small-font-size);
+  width: fit-content;
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  backdrop-filter: blur(24px);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  margin-bottom: 0.75rem;
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.attractions__location {
+  font-size: var(--h2-font-size); /* Larger, heavier font for location */
+  font-weight: var(--font-medium);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+}
+
+.attraction__title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.attraction__description {
+  font-size: var(--small-font-size);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+}
+
+.attraction__button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: var(--small-font-size);
   display: inline-flex;
   align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.attraction__button:hover {
+  opacity: 0.7;
+}
+
+.attraction__button i {
+  font-size: 1rem;
+}
+
+
+/*=============== RATINGS ===============*/
+.ratings__container {
+  display: flex;
   justify-content: center;
-  column-gap: .5rem;
+  align-items: center;
+  padding-block: 3rem;
 }
 
-.explore__perfil{
-  width: 30%;
+.ratings__card {
+  text-align: center;
+  max-width: 500px;
+  padding: 2rem;
+  background-color: var(--container-color);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.ratings__image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.ratings__img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
   border-radius: 50%;
+  border: 4px solid var(--first-color);
 }
 
-.explore__name{
+.ratings__stars {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 0.3rem;
+  font-size: 1.25rem;
+  color: hsl(45, 100%, 50%);
+  margin-bottom: 1rem;
+}
+
+.ratings__quote {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  font-style: italic;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.ratings__name {
   font-size: var(--small-font-size);
   color: var(--title-color);
+  font-weight: var(--font-semi-bold);
 }
+
 /*=============== JOIN ===============*/
 .join__container{
   row-gap: 3rem;
@@ -743,7 +1153,7 @@ img {
   }
 
   .popular__container{
-    grid-template-columns: repeat(3, 240px);
+    grid-template-columns: repeat(240px);
   }
 
   .footer__data{
@@ -795,12 +1205,19 @@ img {
   }
 
   .home__cards{
-    grid-template-columns: repeat(4, 260px);
+    grid-template-columns: 1fr;
+  }
+
+  .home__card-img{
+    display: block; 
+    object-fit: cover; 
+    height: 380px;
+    width: 80%;
   }
 
   .home__card-title{
     left: 1.5rem;
-    bottom: 1.5rem;
+    bottom: 2rem;
   }
 
   .button{
@@ -822,9 +1239,15 @@ img {
   }
 
   .popular__container{
-    grid-template-columns: repeat(3, 300px);
+    grid-template-columns: 1fr;
     column-gap: 3rem;
     padding-top: 4rem;
+  }
+
+  .popular__img {
+    display: block; 
+    object-fit: cover; 
+    height: 380px;
   }
 
   .popular__title{

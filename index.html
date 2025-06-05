@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+      <link rel="shortcut icon" href="assets/img/suitcase-3-line.svg" type="image/x-icon">
 
       <!--=============== REMIXICONS ===============-->
       <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -13,14 +13,13 @@
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
 
-      <title>Responsive travel website - Bedimcode</title>
+      <title>Discover Uganda</title>
    </head>
    <body>
       <!--==================== HEADER ====================-->
       <header class="header" id="header">
          <nav class="nav container">
-            <a href="#" class="nav__logo">Travel</a>
-
+            
             <div class="nav__menu" id="nav-menu">
                <ul class="nav__list">
                   <li class="nav__item">
@@ -28,7 +27,7 @@
                   </li>
 
                   <li class="nav__item">
-                     <a href="#about" class="nav__link">About</a>
+                     <a href="#tours" class="nav__link">Tours</a>
                   </li>
 
                   <li class="nav__item">
@@ -36,7 +35,11 @@
                   </li>
 
                   <li class="nav__item">
-                     <a href="#explore" class="nav__link">Explore</a>
+                     <a href="#destinations" class="nav__link">Destinations</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#attractions" class="nav__link">Attractions</a>
                   </li>
                </ul>
 
@@ -57,121 +60,153 @@
       <main class="main">
          <!--==================== HOME ====================-->
          <section class="home section" id="home">
-            <img src="assets/img/home-bg.jpg" alt="home image" class="home__bg">
-
-            <div class="home__shadow">
-
+            <div class="home__slideshow">
+               <div class="home__bg bg-light" style="background-image: url('assets/img/about-beach.jpg');"></div>
+               <div class="home__bg bg-light" style="background-image: url('assets/img/home-beach.jpg');"></div>
+               <div class="home__bg bg-dark" style="background-image: url('assets/img/home-bg.jpg');"></div>
+             
+               <!-- Add dots -->
+               <div class="home__dots">
+                 <span class="dot active"></span>
+                 <span class="dot"></span>
+                 <span class="dot"></span>
+               </div>
             </div>
+
+            <div class="home__shadow"></div>
             <div class="home__container container grid">
                <div class="home__data">
-                  <h3 class="home__subtitle">
-                     Welcome To Travel
-                  </h3>
-
                   <h1 class="home__title">
-                     Explore <br>
-                     The World
+                     Dicover Uganda
                   </h1>
 
                   <p class="home__description">
-                     Live the trips exploring the world, discover 
-                     paradises, islands, mountains and much 
-                     more, get your trip now.
+                     Experience The Breathtaking Beauty of The Pearl of Africa
                   </p>
-
+                  
                   <a href="#" class="button">
-                     Start Your Journey
+                     View Tours
+                     <i class="ri-arrow-right-line"></i>
+                  </a>
+
+                  <a href="#" class="button-transparent">
+                     Learn More
                      <i class="ri-arrow-right-line"></i>
                   </a>
                </div>
-
-               <div class="home__cards grid">
-                  <article class="home__card">
-                     <img src="assets/img/home-trees.jpg" alt="home image" class="home__card-img">
-                     <h3 class="home__card-title">Uganda</h3>
-                     <div class="home__card-shadow"></div>
-                  </article>
-
-                  <article class="home__card">
-                     <img src="assets/img/home-lake.jpg" alt="home image" class="home__card-img">
-                     <h3 class="home__card-title">Kenya</h3>
-                     <div class="home__card-shadow"></div>
-                  </article>
-
-                  <article class="home__card">
-                     <img src="assets/img/home-mountain.jpg" alt="home image" class="home__card-img">
-                     <h3 class="home__card-title">Tanzania</h3>
-                     <div class="home__card-shadow"></div>
-                  </article>
-
-                  <article class="home__card">
-                     <img src="assets/img/home-beach.jpg" alt="home image" class="home__card-img">
-                     <h3 class="home__card-title">Rwanda</h3>
-                     <div class="home__card-shadow"></div>
-                  </article>
-               </div>
             </div>
          </section>
 
-         <!--==================== ABOUT ====================-->
-         <section class="about section" id="about">
-            <div class="about__container container grid">
-               <div class="about__data">
-                  <h2 class="section__title">
-                     Learn More <br>
-                     About Travel
-                  </h2>  
-
-                  <p class="about__description">
-                     All the trips around the world are a great 
-                     pleasure and happiness for anyone, enjoy 
-                     the sights when you travel the world. Travel 
-                     safely and without worries, get your trip and 
-                     explore the paradises of the world.
-                  </p>
-
-                  <a href="#" class="button">Explore Travel</a>
-
+         <!--==================== FORM SECTION ====================-->
+         <section class="form section" id="tours">
+            <div class="form__container container">
+            <h2 class="section__title">Find Your Perfect African Destination</h2>
+         
+            <form class="form__content">
+               <div class="form__group">
+                  <label for="destination" class="form__label">Destination</label>
+                  <input type="text" id="destination" class="form__input" required>
                </div>
-
-               <div class="about__image">
-                  <img src="assets/img/about-beach.jpg" alt="about image" class="about__img">
-                  <div class="about__shadow"></div>
+               
+               <div class="form__group">
+                  <label for="tour-type" class="form__label">Tour Type</label>
+                  <select id="tour-type" class="form__input" required>
+                     <option value="" disabled selected>Select Tour Type</option>
+                     <option value="safari">Safari</option>
+                     <option value="beach">Beach</option>
+                     <option value="cultural">Cultural</option>
+                  </select>
                </div>
+               
+               <div class="form__group">
+                  <label for="duration" class="form__label">Duration</label>
+                  <select id="duration" class="form__input" required>
+                     <option value="" disabled selected>Select Duration</option>
+                     <option value="1-day">1 Day</option>
+                     <option value="3-days">3 Days</option>
+                     <option value="1-week">1 Week</option>
+                  </select>
+               </div>
+               
+               <button type="submit" class="button"><i class="ri-search-eye-line"></i>  Submit Request</button>
+            </form>
             </div>
          </section>
+ 
 
          <!--==================== POPULAR ====================-->
          <section class="popular section" id="popular">
-              <h2 class="section__title">
-                  Enjoy The Beauty <br>
-                  Of The World
-              </h2>
+              <h1 class="section__title">
+                  Popular Tour Packages
+              </h1>
 
               <div class="popular__container container grid">
                <article class="popular__card">
                   <div class="popular__image">
                      <img src="assets/img/popular-forest.jpg" alt="pupular image" class="popular__img">
                      <div class="popular__shadow"></div>
+                     <span class="popular__best-seller">Best Seller</span>
                   </div>
 
-                  <h2 class="popular__title">Spike Forest</h2>
-                  <div class="popular__location">
-                     <i class="ri-map-pin-line"></i>
-                     <span>Ireland</span>
-                  </div>
+                  <div class="popular__details-wrapper">
+                     <h2 class="popular__title">Spike Forest</h2>
+             
+                     <div class="popular__ratings">
+                         <i class="ri-star-fill"></i>
+                         <i class="ri-star-fill"></i>
+                         <i class="ri-star-fill"></i>
+                         <i class="ri-star-fill"></i>
+                         <span>4.0/5(60 reviews)</span>
+                     </div>
+             
+                     <div class="popular__location">
+                         <i class="ri-map-pin-line"></i>
+                         <span>Ireland</span>
+                     </div>
+             
+                     <div class="popular__duration">
+                         <i class="ri-time-line"></i> <span>4 Days, 3 Nights</span>
+                     </div>
+             
+                     <div class="popular__price-actions">
+                         <div class="popular__price">From <span class="popular__price-amount">$1,600</span> per person</div>
+                         <a href="#" class="button popular__view-details">View Details</a>
+                     </div>
+                 </div>
                </article>
 
                <article class="popular__card">
                   <div class="popular__image">
-                     <img src="assets/img/popular-mountain.jpg" alt="pupular image" class="popular__img">
-                     <div class="popular__shadow"></div>
+                      <img src="assets/img/popular-mountain.jpg" alt="popular image" class="popular__img">
+                      <div class="popular__shadow"></div>
+                      <span class="popular__best-seller">Popular</span>
                   </div>
-
-                  <h2 class="popular__title">Logan Mountain</h2>
-                  <div class="popular__location">
-                     <i class="ri-map-pin-line"></i>
-                     <span>Canadá</span>
+              
+                  <div class="popular__details-wrapper">
+                      <h2 class="popular__title">Logan Mountain</h2>
+              
+                      <div class="popular__ratings">
+                          <i class="ri-star-fill"></i>
+                          <i class="ri-star-fill"></i>
+                          <i class="ri-star-fill"></i>
+                          <i class="ri-star-fill"></i>
+                          <i class="ri-star-fill"></i>
+                          <span>5.0/5(50 reviews)</span>
+                      </div>
+              
+                      <div class="popular__location">
+                          <i class="ri-map-pin-line"></i>
+                          <span>Canadá</span>
+                      </div>
+              
+                      <div class="popular__duration">
+                          <i class="ri-time-line"></i> <span>7 Days, 6 Nights</span>
+                      </div>
+              
+                      <div class="popular__price-actions">
+                          <div class="popular__price">From <span class="popular__price-amount">$2,800</span> per person</div>
+                          <a href="#" class="button popular__view-details">View Details</a>
+                      </div>
                   </div>
                </article>
 
@@ -179,47 +214,206 @@
                   <div class="popular__image">
                      <img src="assets/img/popular-lake.jpg" alt="pupular image" class="popular__img">
                      <div class="popular__shadow"></div>
+                     
                   </div>
 
-                  <h2 class="popular__title">Garda Lake</h2>
-                  <div class="popular__location">
-                     <i class="ri-map-pin-line"></i>
-                     <span>Italy</span>
-                  </div>
+                  <div class="popular__details-wrapper">
+                     <h2 class="popular__title">Garda Lake</h2>
+             
+                     <div class="popular__ratings">
+                         <i class="ri-star-fill"></i>
+                         <i class="ri-star-fill"></i>
+                         <i class="ri-star-fill"></i>
+                         <i class="ri-star-fill"></i>
+                         <i class="ri-star-half-fill"></i>
+                         <span>4.5/5(80 reviews)</span>
+                     </div>
+             
+                     <div class="popular__location">
+                         <i class="ri-map-pin-line"></i>
+                         <span>Italy</span>
+                     </div>
+             
+                     <div class="popular__duration">
+                         <i class="ri-time-line"></i> <span>3 Days, 2 Nights</span>
+                     </div>
+             
+                     <div class="popular__price-actions">
+                         <div class="popular__price">From <span class="popular__price-amount">$1,450</span> per person</div>
+                         <a href="#" class="button popular__view-details">View Details</a>
+                     </div>
+                 </div>
                </article>
-              </div>
-         </section>
-         
-         <!--==================== EXPLORE ====================-->
-         <section class="explore section" id="explore">
-            <div class="explore__container">
-               <div class="explore__image">
-                  <img src="assets/img/explore-beach.jpg" alt="explore image" class="explore__img">
-                  <div class="explore__shadow"></div>
-               </div>
+            </div>
 
-               <div class="explore__content container grid">
-                  <div class="explore__data">
-                     <h2 class="section__title">
-                        Explore The <br> 
-                        Best Paradises
-                     </h2>
-                     <p class="explore__description">
-                        Exploring paradises such as islands and 
-                        valleys when traveling the world is one of 
-                        the greatest experiences when you travel, it 
-                        offers you harmony and peace and you 
-                        can enjoy it with great comfort.
-                     </p>
-                  </div>
-
-                  <div class="explore__user">
-                     <img src="assets/img/explore-perfil.png" alt="explore perfil" class="explore__perfil">
-                     <span class="explore__name">Paul Jeams</span>
-                  </div>
-               </div>
+            <div class="popular__view-all-wrapper">
+               <a href="#" class="popular__view-all-button"><button type="submit" class="button">View All Tours <i class="ri-arrow-right-line"></i></button></a>
             </div>
          </section>
+
+          <!--==================== DESTINATIONS ====================-->
+          <section class="destinations section" id="destinations">
+            <div class="destination__description">
+               <h1 class="section__title">
+                  Top African Destinations
+               </h1>
+               <p>
+                  Explore The Most Breathtaking Locations Across East Africa </br>
+                  from Wildlife Havens To Cultural Landmarks
+               </p>
+            </div>
+
+            <div class="home__cards grid">
+               <article class="home__card">
+                  <img src="assets/img/home-trees.jpg" alt="home image" class="home__card-img">
+                  <div class="home__card-content">
+                     <h3 class="home__card-title">Uganda</h3>
+                     <p class="home__card-tours">12 Tours Available</p>
+                     <a href="#" class="home__card-button">
+                       Explore Destination <i class="ri-arrow-right-line"></i>
+                     </a>
+                  </div>
+                  <div class="home__card-shadow"></div>
+               </article>
+           
+               <article class="home__card">
+                  <img src="assets/img/home-lake.jpg" alt="home image" class="home__card-img">
+                  <div class="home__card-content">
+                     <h3 class="home__card-title">Kenya</h3>
+                     <p class="home__card-tours">9 Tours Available</p>
+                     <a href="#" class="home__card-button">
+                       Explore Destination <i class="ri-arrow-right-line"></i>
+                     </a>
+                  </div>
+                  <div class="home__card-shadow"></div>
+               </article>
+           
+               <article class="home__card">
+                  <img src="assets/img/home-mountain.jpg" alt="home image" class="home__card-img">
+                  <div class="home__card-content">
+                     <h3 class="home__card-title">Tanzania</h3>
+                     <p class="home__card-tours">6 Tours Available</p>
+                     <a href="#" class="home__card-button">
+                       Explore Destination <i class="ri-arrow-right-line"></i>
+                     </a>
+                  </div>
+                  <div class="home__card-shadow"></div>
+               </article>
+           
+               <article class="home__card">
+                  <img src="assets/img/home-beach.jpg" alt="home image" class="home__card-img">
+                  <div class="home__card-content">
+                     <h3 class="home__card-title">Rwanda</h3>
+                     <p class="home__card-tours">10 Tours Available</p>
+                     <a href="#" class="home__card-button">
+                       Explore Destination <i class="ri-arrow-right-line"></i>
+                     </a>
+                  </div>
+                  <div class="home__card-shadow"></div>
+               </article>
+            </div>
+         </section>
+
+
+         <!--==================== ATTRACTIONS ====================-->
+         <section class="attractions section" id="attractions">
+            <h1 class="section__title">
+            Top Attractions
+            </h1>
+         
+            <div class="popular__container container grid">
+               <article class="popular__card">
+                  <div class="popular__image">
+                  <img src="assets/img/home-trees.jpg" alt="Sipi Falls" class="popular__img">
+                  <div class="popular__shadow"></div>
+                  </div>
+            
+                  <div class="popular__details-wrapper">
+                  <span class="attraction__country">Uganda</span>
+                  <h2 class="attraction__title">Sipi Falls</h2>
+                  <p class="attraction__description">
+                     A series of beautiful waterfalls nestled in eastern Uganda’s foothills, perfect for hiking and sightseeing.
+                  </p>
+                  <a href="#" class="attraction__button">
+                     Read More <i class="ri-arrow-right-line"></i>
+                  </a>
+                  </div>
+               </article>
+         
+               <article class="popular__card">
+                  <div class="popular__image">
+                  <img src="assets/img/home-trees.jpg" alt="Sipi Falls" class="popular__img">
+                  <div class="popular__shadow"></div>
+                  </div>
+            
+                  <div class="popular__details-wrapper">
+                  <span class="attraction__country">Uganda</span>
+                  <h2 class="attraction__title">Sipi Falls</h2>
+                  <p class="attraction__description">
+                     A series of beautiful waterfalls nestled in eastern Uganda’s foothills, perfect for hiking and sightseeing.
+                  </p>
+                  <a href="#" class="attraction__button">
+                     Read More <i class="ri-arrow-right-line"></i>
+                  </a>
+                  </div>
+            </article>
+         
+            <article class="popular__card">
+               <div class="popular__image">
+               <img src="assets/img/home-trees.jpg" alt="Sipi Falls" class="popular__img">
+               <div class="popular__shadow"></div>
+               </div>
+         
+               <div class="popular__details-wrapper">
+               <span class="attraction__country">Uganda</span>
+               <h2 class="attraction__title">Sipi Falls</h2>
+               <p class="attraction__description">
+                  A series of beautiful waterfalls nestled in eastern Uganda’s foothills, perfect for hiking and sightseeing.
+               </p>
+               <a href="#" class="attraction__button">
+                  Read More <i class="ri-arrow-right-line"></i>
+               </a>
+               </div>
+            </article>
+            </div>
+         
+            <div class="popular__view-all-wrapper">
+            <a href="#" class="popular__view-all-button"><button type="submit" class="button">View All Attractions <i class="ri-arrow-right-line"></i></button></a>
+         </div>
+         </section>
+   
+         <!--==================== RATINGS ====================-->
+         <section class="ratings section" id="ratings">
+            <div class="ratings__container container">
+            
+            <div class="ratings__card">
+               <!-- Profile image -->
+               <div class="ratings__image">
+                  <img src="assets/img/explore-perfil.png" alt="User profile" class="ratings__img">
+               </div>
+         
+               <!-- Star Ratings -->
+               <div class="ratings__stars">
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-fill"></i>
+                  <i class="ri-star-half-fill"></i>
+               </div>
+         
+               <!-- Quote -->
+               <p class="ratings__quote">
+                  “Traveling with this agency was the best decision I made. The views, the service, the people — absolutely incredible.”
+               </p>
+         
+               <!-- Name (optional) -->
+               <span class="ratings__name">Paul Jeams</span>
+            </div>
+         
+            </div>
+         </section>
+ 
+          
          
          <!--==================== JOIN ====================-->
          <section class="join section">

@@ -94,3 +94,57 @@ sr.reveal('.explore__image', {
     opacity: 0.1,       // Start almost invisible
     easing: 'ease-in-out'
 })
+sr.reveal('.form__container', { origin: 'bottom', distance: '60px', delay: 400 });
+
+
+/*=============== HOME BACKGROUND ANIMATION ===============*/
+const backgrounds = document.querySelectorAll('.home__bg');
+  const dots = document.querySelectorAll('.dot');
+  let current = 0;
+
+  function showSlide(index) {
+    backgrounds.forEach(bg => bg.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    backgrounds[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    current = (current + 1) % backgrounds.length;
+    showSlide(current);
+  }
+
+  let slideshowInterval = setInterval(nextSlide, 5000); // change every 5s
+
+  // Optional: allow clicking dots
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      clearInterval(slideshowInterval);
+      current = index;
+      showSlide(index);
+    });
+  });
+
+  // Show the first slide initially
+  showSlide(current);
+
+/*=============== COLOR TEXT CHANGE ===============*/
+  function showSlide(index) {
+    backgrounds.forEach(bg => bg.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+  
+    backgrounds[index].classList.add('active');
+    dots[index].classList.add('active');
+  
+    // Change text color class
+    const textContainer = document.querySelector('.home__data');
+    textContainer.classList.remove('text-dark', 'text-light');
+    
+    if (backgrounds[index].classList.contains('bg-light')) {
+      textContainer.classList.add('text-dark'); // Use dark text
+    } else {
+      textContainer.classList.add('text-light'); // Use light text
+    }
+  }
+  

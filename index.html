@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/suitcase-3-line.svg" type="image/x-icon">
+      <link rel="shortcut icon" href="assets/img/hiking-solid.svg" type="image/x-icon">
 
       <!--=============== REMIXICONS ===============-->
       <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
@@ -40,6 +40,10 @@
 
                   <li class="nav__item">
                      <a href="#attractions" class="nav__link">Attractions</a>
+                  </li>
+
+                  <li class="nav__item">
+                     <a href="#ratings" class="nav__link">Ratings</a>
                   </li>
                </ul>
 
@@ -385,176 +389,171 @@
          <!--==================== RATINGS ====================-->
          <section class="ratings section" id="ratings">
             <div class="ratings__container container">
+         
+               <!-- Section heading -->
+               <div class="ratings__header">
+                  <h2 class="section__title">What Our Travelers Say</h2>
+                  <p class="ratings__subtitle">
+                     Read about the unforgettable experiences of our guests during their African adventures.
+                  </p>
+               </div>
             
-            <div class="ratings__card">
-               <!-- Profile image -->
-               <div class="ratings__image">
-                  <img src="assets/img/explore-perfil.png" alt="User profile" class="ratings__img">
+               <!-- Testimonial cards (slider) -->
+               <div class="ratings__slider">
+                  <div class="ratings__card active">
+                     <div class="ratings__image">
+                     <img src="assets/img/explore-perfil.png" alt="User profile" class="ratings__img">
+                     </div>
+                     <div class="ratings__stars">
+                     <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+                     </div>
+                     <p class="ratings__quote">
+                     “Traveling with this agency was the best decision I made. The views, the service, the people — absolutely incredible.”
+                     </p>
+                     <div class="ratings__info">
+                     <span class="ratings__name">Paul Jeams</span>
+                     <span class="ratings__location">Cape Town, South Africa</span>
+                     </div>
+                  </div>
+            
+                  <div class="ratings__card">
+                     <div class="ratings__image">
+                     <img src="assets/img/popular-forest.jpg" alt="User profile" class="ratings__img">
+                     </div>
+                     <div class="ratings__stars">
+                     <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                     </div>
+                     <p class="ratings__quote">
+                     “Unmatched scenery and well-organized tours. I felt safe, inspired, and thrilled. 10/10!”
+                     </p>
+                     <div class="ratings__info">
+                     <span class="ratings__name">Maria Gonzales</span>
+                     <span class="ratings__location">Kigali, Rwanda</span>
+                     </div>
+                  </div>
+            
+                  <div class="ratings__card">
+                     <div class="ratings__image">
+                        <img src="assets/img/binoculars-fill.svg" alt="User profile" class="ratings__img">
+                     </div>
+                     <div class="ratings__stars">
+                        <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                     </div>
+                     <p class="ratings__quote">
+                     “The gorilla trek was once-in-a-lifetime. Thank you for making it possible!”
+                     </p>
+                     <div class="ratings__info">
+                        <span class="ratings__name">Liam O’Connor</span>
+                        <span class="ratings__location">Kisoro, Uganda</span>
+                     </div>
+                  </div>
+               </div>
+            
+               <!-- Dots -->
+               <div class="ratings__dots">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
                </div>
          
-               <!-- Star Ratings -->
-               <div class="ratings__stars">
-                  <i class="ri-star-fill"></i>
-                  <i class="ri-star-fill"></i>
-                  <i class="ri-star-fill"></i>
-                  <i class="ri-star-fill"></i>
-                  <i class="ri-star-half-fill"></i>
-               </div>
-         
-               <!-- Quote -->
-               <p class="ratings__quote">
-                  “Traveling with this agency was the best decision I made. The views, the service, the people — absolutely incredible.”
-               </p>
-         
-               <!-- Name (optional) -->
-               <span class="ratings__name">Paul Jeams</span>
             </div>
-         
-            </div>
-         </section>
+            </section>
+ 
  
           
          
-         <!--==================== JOIN ====================-->
-         <section class="join section">
-            <div class="join__container container grid">
-               <div class="join__data">
-                  <h2 class="section__title">
-                     Your Journey <br>
-                     Starts Here
-                  </h2>
+      <!--==================== NEWSLETTER ====================-->
+      <section class="newsletter section" id="newsletter">
+         <img src="assets/img/elephant-safari.webp" alt="Newsletter background" class="newsletter__bg-img">
 
-                  <p class="join__description">
-                     Get up to date with the latest 
-                     travel and information from us.
-                  </p>
+         <div class="newsletter__content container">
+           <h2 class="section__title">Stay Updated On African Adventures</h2>
+           <p class="newsletter__description">
+             Join our newsletter and be the first to hear about breathtaking destinations, special offers, and unforgettable experiences.
+           </p>
+       
+           <form class="newsletter__form">
+             <input type="email" placeholder="Enter your email" class="newsletter__input" required>
+             <button type="submit" class="newsletter__button">Subscribe Now</button>
+           </form>
+       
+           <p class="newsletter__note">
+             We respect your privacy and will never share information
+           </p>
+         </div>
+      </section>
+       
 
-                  <form action="" class="join__form">
-                     <input type="email" placeholder="Enter your Email" class="join__input">
-                     <button class="join__button">
-                        Subscribe To The Newsletter
-                        <i class="ri-arrow-right-line"></i>
-                     </button>
-                  </form>
-               </div>
-
-               <div class="join__image">
-                  <img src="assets/img/join-island.jpg" alt="join image" class="join__img">
-                  <div class="join__shadow"></div>
-               </div>
-            </div>
-         </section>
       </main>
 
       <!--==================== FOOTER ====================-->
       <footer class="footer">
          <div class="footer__container container grid">
-            <div class="footer__content grid">
-               <div>
-                  <a href="#" class="footer__logo">Travel</a>
-
-                  <p class="footer__description">
-                     Travel with us and explore <br> 
-                     the world without limits.
-                  </p>
-               </div>
-
-               <div class="footer__data grid">
-                  <div>
-                     <h3 class="footer__title">About</h3>
-                     <ul class="footer__links">
-                        <li>
-                           <a href="#" class="footer__link">About Us</a>
-                        </li>
-
-                        <li>
-                           <a href="#" class="footer__link">Features</a>
-                        </li>
-
-                        <li>
-                           <a href="#" class="footer__link">News & Blog</a>
-                        </li>
-                     </ul>
-                  </div>
-
-                  <div>
-                     <h3 class="footer__title">Company</h3>
-                     <ul class="footer__links">
-                        <li>
-                           <a href="#" class="footer__link">FAQs</a>
-                        </li>
-
-                        <li>
-                           <a href="#" class="footer__link">History</a>
-                        </li>
-
-                        <li>
-                           <a href="#" class="footer__link">Testimonials</a>
-                        </li>
-                     </ul>
-                  </div>
-
-                  <div>
-                     <h3 class="footer__title">Contact</h3>
-                     <ul class="footer__links">
-                        <li>
-                           <a href="#" class="footer__link">Call Center</a>
-                        </li>
-
-                        <li>
-                           <a href="#" class="footer__link">Support Center</a>
-                        </li>
-
-                        <li>
-                           <a href="#" class="footer__link">Contact Us</a>
-                        </li>
-                     </ul>
-                  </div>
-
-                  <div>
-                     <h3 class="footer__title">Support</h3>
-                     <ul class="footer__links">
-                        <li>
-                           <a href="#" class="footer__link">Privacy Policy</a>
-                        </li>
-
-                        <li>
-                           <a href="#" class="footer__link">Terms & Services</a>
-                        </li>
-
-                        <li>
-                           <a href="#" class="footer__link">Payments</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-
-            <div class="footer__group">
+           <div class="footer__content grid">
+             <div>
+               <a href="#" class="footer__logo">
+                 Africa<span class="footer__logo-highlight">Explore</span>
+               </a>
+       
+               <p class="footer__description">
+                 Specialists in authentic East African safari experiences and<br>
+                 wildlife adventures since 2005.
+               </p>
+       
+               <!-- ✅ Socials now directly under description -->
                <div class="footer__social">
-                  <a href="#" target="_blank" class="footer__social-link">
-                     <i class="ri-facebook-circle-fill"></i>
-                  </a>
-
-                  <a href="#" target="_blank" class="footer__social-link">
-                     <i class="ri-instagram-fill"></i>
-                  </a>
-
-                  <a href="#" target="_blank" class="footer__social-link">
-                     <i class="ri-twitter-line"></i>
-                  </a>
-
-                  <a href="#" target="_blank" class="footer__social-link">
-                     <i class="ri-youtube-fill"></i>
-                  </a>
+                 <a href="#" target="_blank" class="footer__social-link"><i class="ri-facebook-circle-fill"></i></a>
+                 <a href="#" target="_blank" class="footer__social-link"><i class="ri-instagram-fill"></i></a>
+                 <a href="#" target="_blank" class="footer__social-link"><i class="ri-twitter-line"></i></a>
+                 <a href="#" target="_blank" class="footer__social-link"><i class="ri-youtube-fill"></i></a>
                </div>
-
-               <span class="footer__copy">
-                  &#169; Copyright Bedimcode. All rights reserved
-               </span>
-            </div>
+             </div>
+       
+             <div class="footer__data grid">
+               <!-- ✅ Renamed: Quick Links -->
+               <div>
+                 <h3 class="footer__title">Quick Links</h3>
+                 <ul class="footer__links">
+                  <li><a href="#" class="footer__link">Home</a></li> 
+                  <li><a href="#" class="footer__link">About Us</a></li>
+                   <li><a href="#" class="footer__link">Tours</a></li>
+                   <li><a href="#" class="footer__link">Attractions</a></li>
+                   <li><a href="#" class="footer__link">Contact</a></li>
+                   <li><a href="#" class="footer__link">FAQ</a></li>
+                 </ul>
+               </div>
+       
+               <!-- ✅ Renamed: Destinations -->
+               <div>
+                 <h3 class="footer__title">Destinations</h3>
+                 <ul class="footer__links">
+                   <li><a href="#" class="footer__link">Uganda</a></li>
+                   <li><a href="#" class="footer__link">Kenya</a></li>
+                   <li><a href="#" class="footer__link">Tanzania</a></li>
+                   <li><a href="#" class="footer__link">Rwanda</a></li>
+                 </ul>
+               </div>
+       
+               <!-- ✅ New: Contact Info with icons -->
+               <div>
+                 <h3 class="footer__title">Contact</h3>
+                 <ul class="footer__links">
+                   <li><i class="ri-map-pin-line"></i> Mbarara, Uganda</li>
+                   <li><i class="ri-phone-line"></i> +256 123 456 789</li>
+                   <li><i class="ri-mail-line"></i> info@africaexplore.com</li>
+                   <li><i class="ri-time-line"></i> Mon–Fri 9AM–6PM EAT</li>
+                 </ul>
+               </div>
+             </div>
+           </div>
+       
+           <div class="footer__group">
+             <span class="footer__copy">
+               &#169; 2025 AfricaExplore. All rights reserved
+             </span>
+           </div>
          </div>
-      </footer>
+       </footer>       
 
       <!--========== SCROLL UP ==========-->
       <a href="#" class="scrollup" id="scroll-up">
